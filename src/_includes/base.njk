@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or 'Herbart Kita is an independent publisher for writers before college, gap year included. We publish their books on Amazon and in print.' }}">
+  {% if site.url %}<link rel="canonical" href="{{ site.url }}{{ page.url }}">{% endif %}
+  <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}{{ site.name }}">
+  <meta property="og:description" content="{{ description or 'An independent publisher for writers before college, gap year included.' }}">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Display&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <a class="wordmark" href="/" aria-label="{{ site.name }} home">
+        <svg class="wordmark__seal" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M4 27.5c5-2.2 10.3-2 16 .8 5.7-2.8 11-3 16-.8V13c-5-2.2-10.3-2-16 .8C14.3 11 9 10.8 4 13z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M20 13.8v14.5M20 13.8V8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 9.5c-.4-3.1-2.6-4.8-5.8-4.9.3 3.2 2.4 5 5.8 4.9zM20 8.6c.5-2.7 2.5-4.2 5.3-4.2-.3 2.8-2.2 4.4-5.3 4.2z" fill="currentColor"/>
+        </svg>
+        <span class="wordmark__name">Herbart Kita</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        {% set links = [["/publish/", "Publish"], ["/internships/", "Internships"], ["/about/", "About"]] %}
+        {% for link in links %}
+        <a href="{{ link[0] }}"{% if page.url == link[0] %} aria-current="page"{% endif %}>{{ link[1] }}</a>
+        {% endfor %}
+        <a class="nav__ext" href="{{ site.argosyUrl }}">The Argosy <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="colophon">
+    <div class="wrap colophon__grid">
+      <div>
+        <p class="colophon__name">{{ site.legalName }}</p>
+        <p class="colophon__line">Books by writers before college, on Amazon and in print.</p>
+        {% if site.email %}<p class="colophon__line"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>{% endif %}
+      </div>
+      <nav class="colophon__links" aria-label="Footer">
+        <a href="/publish/">Publish with us</a>
+        <a href="/internships/">Internships</a>
+        <a href="/about/">About</a>
+        <a href="{{ site.argosyUrl }}">The Argosy</a>
+      </nav>
+      {% set b = site.business %}
+      {% if b.tradeName or b.representative or b.registrationNumber or b.address %}
+      <dl class="biz" lang="ko">
+        {% if b.tradeName %}<div><dt>상호</dt><dd>{{ b.tradeName }}</dd></div>{% endif %}
+        {% if b.representative %}<div><dt>대표자</dt><dd>{{ b.representative }}</dd></div>{% endif %}
+        {% if b.registrationNumber %}<div><dt>사업자등록번호</dt><dd>{{ b.registrationNumber }}</dd></div>{% endif %}
+        {% if b.address %}<div><dt>주소</dt><dd>{{ b.address }}</dd></div>{% endif %}
+      </dl>
+      {% endif %}
+    </div>
+    <div class="wrap">
+      <div class="colophon__base">
+        <span>© {{ "" | year }} {{ site.legalName }}</span>
+        <span>Registered in the Republic of Korea</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

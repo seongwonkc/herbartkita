@@ -1,0 +1,59 @@
+---
+layout: base.njk
+title: Internships
+description: Student internships at Herbart Kita in writing, editing, book production, and publishing.
+permalink: /internships/
+---
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Student internships</p>
+    <h1 class="display display--page">Learn publishing by making books.</h1>
+    <p class="lede">Our interns work on books that are actually going to print. You pick a track, work with our editors, and leave with published work to show for it.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 class="section-label">Tracks</h2>
+    <div class="tracks">
+      <article class="track">
+        <h3>Editorial</h3>
+        <p>Read submissions, write reader reports, and work with authors on revisions.</p>
+      </article>
+      <article class="track">
+        <h3>Copyediting &amp; proofreading</h3>
+        <p>Check manuscripts for grammar, consistency, and facts, then read the proofs before print.</p>
+      </article>
+      <article class="track">
+        <h3>Writing</h3>
+        <p>Write jacket copy, author bios, and pieces that help each book find readers.</p>
+      </article>
+      <article class="track">
+        <h3>Book production</h3>
+        <p>Help lay out interiors, work on covers, and prepare files for Amazon and the printer.</p>
+      </article>
+      <article class="track">
+        <h3>Publishing</h3>
+        <p>Set up book listings, plan launches, and track how books reach readers.</p>
+      </article>
+      <article class="track track--argosy">
+        <h3>The Argosy</h3>
+        <p>Report and edit for <a href="{{ site.argosyUrl }}">The Argosy</a>, the student newspaper we sponsor.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band band--tint" id="apply">
+  <div class="wrap cta">
+    <div>
+      <h2 class="cta__title">How to apply</h2>
+      {% if site.email %}
+      <p>Email <a href="mailto:{{ site.email }}?subject=Internship%20application">{{ site.email }}</a> with the track you want, your school year, and a short writing sample.</p>
+      {% else %}
+      <p>Applications open soon. Check back for the address to send your writing sample to.</p>
+      {% endif %}
+    </div>
+    {% if site.email %}<a class="btn btn--solid" href="mailto:{{ site.email }}?subject=Internship%20application">Apply by email</a>{% endif %}
+  </div>
+</section>

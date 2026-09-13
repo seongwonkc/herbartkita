@@ -1,0 +1,97 @@
+---
+layout: base.njk
+permalink: /
+---
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="kicker">Independent publisher · Korea</p>
+      <h1 class="display">First books by writers who haven’t started college yet.</h1>
+      <p class="lede">Herbart Kita publishes books by middle school, high school, and gap year writers. We edit them, design them, and put them on Amazon and in print.</p>
+      <div class="actions">
+        <a class="btn btn--solid" href="/publish/">Publish with us</a>
+        <a class="btn" href="/internships/">Student internships</a>
+      </div>
+    </div>
+
+    <div class="shelf" aria-hidden="true">
+      <div class="shelf__row">
+        <span class="spine s1"><i></i></span>
+        <span class="spine s2"><i></i></span>
+        <span class="spine s3 lean"><i></i></span>
+        <span class="spine s4"><i></i></span>
+        <span class="spine s5"><i></i></span>
+        <span class="spine s6"><i></i></span>
+        <span class="spine s7"><i></i></span>
+      </div>
+      <div class="shelf__board"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 class="section-label">What we do</h2>
+    <div class="three">
+      <article class="pillar">
+        <p class="pillar__num">01</p>
+        <h3>Books</h3>
+        <p>We publish writers before college, gap year students included. Each book goes through editing and design, then out on Amazon and in print.</p>
+        <a class="more" href="/publish/">How publishing works</a>
+      </article>
+      <article class="pillar">
+        <p class="pillar__num">02</p>
+        <h3>Internships</h3>
+        <p>Students work on the books we publish: reading submissions, editing, proofreading, production, and getting books out to readers.</p>
+        <a class="more" href="/internships/">See the internships</a>
+      </article>
+      <article class="pillar">
+        <p class="pillar__num">03</p>
+        <h3>The Argosy</h3>
+        <p>We fund <em>The Argosy</em>, an international newspaper that students report, write, and edit themselves.</p>
+        <a class="more" href="{{ site.argosyUrl }}">Read The Argosy</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% if books.length %}
+<section class="band band--catalog" id="books">
+  <div class="wrap">
+    <h2 class="section-label">Our books</h2>
+    <ul class="catalog">
+      {% for book in books %}
+      <li class="book">
+        {% if book.cover %}<img class="book__cover" src="{{ book.cover }}" alt="Cover of {{ book.title }}" loading="lazy">{% endif %}
+        <h3 class="book__title">{{ book.title }}</h3>
+        <p class="book__author">{{ book.author }}{% if book.authorNote %} <span>· {{ book.authorNote }}</span>{% endif %}</p>
+        {% if book.blurb %}<p class="book__blurb">{{ book.blurb }}</p>{% endif %}
+        {% if book.amazonUrl %}<a class="more" href="{{ book.amazonUrl }}">On Amazon</a>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+<section class="argosy">
+  <div class="wrap argosy__grid">
+    <img class="argosy__seal" src="/assets/img/argosy-seal.png" alt="The Argosy seal" width="160" height="160" loading="lazy">
+    <div>
+      <p class="kicker kicker--light">Sponsored by Herbart Kita</p>
+      <h2 class="argosy__title">The Argosy</h2>
+      <p>Students from schools around the world run <em>The Argosy</em>. They pitch the stories, report them, and edit each other. We pay for it so they can write about what matters to them without chasing clicks.</p>
+      <a class="btn btn--light" href="{{ site.argosyUrl }}">theargosy.org <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap founders">
+    <h2 class="section-label">Founded by</h2>
+    <ul class="founders__list">
+      {% for f in site.founders %}<li>{{ f }}</li>{% endfor %}
+    </ul>
+    <a class="more" href="/about/">About Herbart Kita</a>
+  </div>
+</section>

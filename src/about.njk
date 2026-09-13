@@ -1,0 +1,51 @@
+---
+layout: base.njk
+title: About
+description: Herbart Kita is an independent publisher registered in Korea, founded by Jiwon Hur and Seong Won Choi.
+permalink: /about/
+---
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">About</p>
+    <h1 class="display display--page">A small publishing house for young writers.</h1>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap prose">
+    <p>Herbart Kita Publishing is an independent publisher registered in Korea. We publish only writers who haven’t started college yet, from middle school through the gap year.</p>
+    <p>Students do more than write here. They edit, proofread, design, and publish through our internships, and they report and edit <em>The Argosy</em>, the international student newspaper we fund.</p>
+  </div>
+</section>
+
+<section class="band band--tint">
+  <div class="wrap founders">
+    <h2 class="section-label">Founders</h2>
+    <ul class="founders__list">
+      {% for f in site.founders %}<li>{{ f }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap split">
+    <h2 class="section-label">Contact</h2>
+    <div class="prose">
+      {% if site.email %}
+      <p>Manuscripts, internship applications, and everything else: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      {% else %}
+      <p>Our contact address is on its way.</p>
+      {% endif %}
+      {% set b = site.business %}
+      {% if b.tradeName or b.representative or b.registrationNumber or b.address %}
+      <h3 class="subhead" lang="ko">사업자 정보</h3>
+      <dl class="biz biz--page" lang="ko">
+        {% if b.tradeName %}<div><dt>상호</dt><dd>{{ b.tradeName }}</dd></div>{% endif %}
+        {% if b.representative %}<div><dt>대표자</dt><dd>{{ b.representative }}</dd></div>{% endif %}
+        {% if b.registrationNumber %}<div><dt>사업자등록번호</dt><dd>{{ b.registrationNumber }}</dd></div>{% endif %}
+        {% if b.address %}<div><dt>주소</dt><dd>{{ b.address }}</dd></div>{% endif %}
+      </dl>
+      {% endif %}
+    </div>
+  </div>
+</section>
