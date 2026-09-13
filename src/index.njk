@@ -2,15 +2,16 @@
 layout: base.njk
 permalink: /
 ---
+{% from "macros.njk" import cover %}
 <section class="hero">
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <p class="kicker">Independent publisher · Korea</p>
+      <p class="kicker">Independent publisher · {{ site.location }}</p>
       <h1 class="display">First books by writers who haven’t started college yet.</h1>
       <p class="lede">Herbart Kita publishes books by middle school, high school, and gap year writers. We edit them, design them, and put them on Amazon and in print.</p>
       <div class="actions">
-        <a class="btn btn--solid" href="/publish/">Publish with us</a>
-        <a class="btn" href="/internships/">Student internships</a>
+        <a class="btn btn--solid" href="/books/">See our books</a>
+        <a class="btn" href="/publish/">Publish with us</a>
       </div>
     </div>
 
@@ -27,9 +28,63 @@ permalink: /
       <div class="shelf__board"></div>
     </div>
   </div>
+  <div class="wrap">
+    <dl class="tally">
+      <div><dt>Books published</dt><dd>{{ books.length }}</dd></div>
+      <div><dt>Young authors</dt><dd>{{ authors.length }}</dd></div>
+      <div><dt>Student newspaper funded</dt><dd>1</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band band--list">
+  <div class="wrap">
+    <div class="band__head">
+      <h2 class="section-label">From our list</h2>
+      <a class="more" href="/books/">All {{ books.length }} books</a>
+    </div>
+    <ul class="wall">
+      {% for b in books %}
+      <li>
+        <a href="/books/#{{ b.author | slugify }}" class="wall__item">
+          {{ cover(b) }}
+          <span class="wall__title">{{ b.title }}{% if b.series %} <span>{{ b.subtitle.split(":")[0] }}</span>{% endif %}</span>
+          <span class="wall__author">{{ b.author }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% set tnd = books | where("series", "The Tumor Next Door") %}
+<section class="feature">
+  <div class="wrap feature__grid">
+    <div class="fan" aria-hidden="true">
+      {% for b in tnd %}{{ cover(b, "fan") }}{% endfor %}
+    </div>
+    <div>
+      <p class="kicker kicker--light">Featured series</p>
+      <h2 class="feature__title">The Tumor Next Door</h2>
+      <p class="feature__by">Karen Park · Art by Bon K.</p>
+      <p>{{ tnd[0].blurb }}</p>
+      <a class="btn btn--light" href="/books/#karen-park">Karen Park’s books</a>
+    </div>
+  </div>
 </section>
 
 <section class="band">
+  <div class="wrap story">
+    <h2 class="section-label">Why we started</h2>
+    <p class="story__lead">In high school, Jiwon Hur’s best writing kept getting dismissed as “by a kid.”</p>
+    <div class="story__body">
+      <p>Herbart Kita is the publisher she wanted back then. We take manuscripts from writers who haven’t started college and give them the same editing, design, and care an adult author would get. Then we publish them.</p>
+      <a class="more" href="/about/">About the founders</a>
+    </div>
+  </div>
+</section>
+
+<section class="band band--tint">
   <div class="wrap">
     <h2 class="section-label">What we do</h2>
     <div class="three">
@@ -55,43 +110,30 @@ permalink: /
   </div>
 </section>
 
-{% if books.length %}
-<section class="band band--catalog" id="books">
-  <div class="wrap">
-    <h2 class="section-label">Our books</h2>
-    <ul class="catalog">
-      {% for book in books %}
-      <li class="book">
-        {% if book.cover %}<img class="book__cover" src="{{ book.cover }}" alt="Cover of {{ book.title }}" loading="lazy">{% endif %}
-        <h3 class="book__title">{{ book.title }}</h3>
-        <p class="book__author">{{ book.author }}{% if book.authorNote %} <span>· {{ book.authorNote }}</span>{% endif %}</p>
-        {% if book.blurb %}<p class="book__blurb">{{ book.blurb }}</p>{% endif %}
-        {% if book.amazonUrl %}<a class="more" href="{{ book.amazonUrl }}">On Amazon</a>{% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
-{% endif %}
-
 <section class="argosy">
   <div class="wrap argosy__grid">
     <img class="argosy__seal" src="/assets/img/argosy-seal.png" alt="The Argosy seal" width="160" height="160" loading="lazy">
     <div>
       <p class="kicker kicker--light">Sponsored by Herbart Kita</p>
       <h2 class="argosy__title">The Argosy</h2>
-      <p>Students from schools around the world run <em>The Argosy</em>. They pitch the stories, report them, and edit each other. We pay for it so they can write about what matters to them without chasing clicks.</p>
+      <p>Students from schools around the world run <em>The Argosy</em>. They pitch the stories, report them, and edit each other. We pay for it so they can write about what matters to them without chasing clicks. Its founding editor-in-chief, Minwoo Jung, has published three books with us.</p>
       <a class="btn btn--light" href="{{ site.argosyUrl }}">theargosy.org <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
 
 <section class="band">
-  <div class="wrap founders">
-    <h2 class="section-label">Founded by</h2>
-    <ul class="founders__list">
-      {% for f in site.founders %}<li>{{ f }}</li>{% endfor %}
-    </ul>
-    <a class="more" href="/about/">About Herbart Kita</a>
+  <div class="wrap">
+    <h2 class="section-label">Founders</h2>
+    <div class="founder-cards">
+      {% for f in founders %}
+      <article class="founder-card">
+        <h3 class="founder-card__name">{{ f.name }}</h3>
+        <p class="founder-card__edu">{{ f.education | join(" · ") }}</p>
+        <p>{{ f.summary | safe }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <a class="more" href="/about/">Read more</a>
   </div>
 </section>

@@ -1,9 +1,10 @@
 ---
 layout: base.njk
 title: About
-description: Herbart Kita is an independent publisher registered in Korea, founded by Jiwon Hur and Seong Won Choi.
+description: Herbart Kita is an independent publisher in Gimpo, Korea, founded by Jiwon Hur and Seong Won Choi to publish writers before college.
 permalink: /about/
 ---
+{% from "macros.njk" import cover, buyLinks %}
 <section class="page-head">
   <div class="wrap">
     <p class="kicker">About</p>
@@ -12,18 +13,44 @@ permalink: /about/
 </section>
 
 <section class="band">
-  <div class="wrap prose">
-    <p>Herbart Kita Publishing is an independent publisher registered in Korea. We publish only writers who haven’t started college yet, from middle school through the gap year.</p>
-    <p>Students do more than write here. They edit, proofread, design, and publish through our internships, and they report and edit <em>The Argosy</em>, the international student newspaper we fund.</p>
+  <div class="wrap split">
+    <h2 class="section-label">What we are</h2>
+    <div class="prose">
+      <p>Herbart Kita Publishing is an independent publisher in {{ site.location }}. We publish only writers who haven’t started college yet, from middle school through the gap year. So far that means {{ books.length }} books by {{ authors.length }} authors: an illustrated trilogy, a memoir, a civics guide, a book on Korean art and politics, political fables, and more.</p>
+      <p>Students do more than write here. They edit, proofread, design, and publish through our <a href="/internships/">internships</a>, and they report and edit <a href="{{ site.argosyUrl }}"><em>The Argosy</em></a>, the international student newspaper we fund.</p>
+    </div>
   </div>
 </section>
 
 <section class="band band--tint">
-  <div class="wrap founders">
+  <div class="wrap">
     <h2 class="section-label">Founders</h2>
-    <ul class="founders__list">
-      {% for f in site.founders %}<li>{{ f }}</li>{% endfor %}
-    </ul>
+    {% for f in founders %}
+    <article class="founder">
+      <header class="founder__head">
+        <h3 class="founder__name">{{ f.name }}{% if f.nameKo %} <span lang="ko">{{ f.nameKo }}</span>{% endif %}</h3>
+        <p class="founder__role">{{ f.role }}</p>
+        <ul class="founder__edu">{% for e in f.education %}<li>{{ e }}</li>{% endfor %}</ul>
+      </header>
+      <div class="founder__body prose">
+        {% for p in f.bio %}<p>{{ p | safe }}</p>{% endfor %}
+        {% if f.books %}
+        <ul class="founder__books">
+          {% for b in f.books %}
+          <li class="mini-book">
+            {{ cover(b, "mini") }}
+            <div>
+              <p class="mini-book__title">{{ b.title }}</p>
+              <p class="mini-book__sub">{{ b.subtitle }}</p>
+              {{ buyLinks(b.links) }}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
   </div>
 </section>
 

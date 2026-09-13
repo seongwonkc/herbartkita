@@ -1,14 +1,18 @@
 {
   "name": "Herbart Kita",
   "legalName": "Herbart Kita Publishing",
-  "url": "",
+  "url": "https://seongwonkc.github.io/herbartkita",
   "email": "",
-  "founders": ["Jiwon Hur", "Seong Won Choi"],
+  "founders": [
+    "Jiwon Hur",
+    "Seong Won Choi"
+  ],
   "argosyUrl": "https://theargosy.org",
   "business": {
     "tradeName": "",
-    "representative": "",
-    "registrationNumber": "",
-    "address": ""
-  }
+    "representative": "허지원",
+    "registrationNumber": "446-06-02846",
+    "address": "경기도 김포시 김포한강8로 410 스타프라자 503-1018호"
+  },
+  "location": "Gimpo, Korea"
 }

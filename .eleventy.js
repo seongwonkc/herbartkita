@@ -6,6 +6,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
+  // Nunjucks selectattr only tests truthiness; this one matches a value.
+  eleventyConfig.addFilter("where", (arr, key, value) => (arr || []).filter((x) => x[key] === value));
 
   // Blank fields in site.json are omitted from the page, never shown as placeholders.
   // List them at build time so nothing ships half-filled by accident.

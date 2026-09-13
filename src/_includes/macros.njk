@@ -1,0 +1,29 @@
+{# Book cover: real image when we have one, otherwise a typeset board in the book's color. #}
+{% macro cover(book, size="") %}
+{% if book.cover %}
+<img class="cover{% if size %} cover--{{ size }}{% endif %}" src="{{ book.cover }}" alt="Cover of {{ book.title }}{% if book.subtitle %}: {{ book.subtitle }}{% endif %}" loading="lazy" width="320" height="480">
+{% else %}
+<div class="cover cover--type{% if size %} cover--{{ size }}{% endif %}" style="--board: {{ book.coverColor or '#23443a' }}" role="img" aria-label="{{ book.title }} by {{ book.author }}">
+  <span class="cover__title">{{ book.title }}</span>
+  {% if book.subtitle %}<span class="cover__sub">{{ book.subtitle }}</span>{% endif %}
+  <span class="cover__author">{{ book.author }}</span>
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro buyLinks(links) %}
+{% if links and links.length %}
+<p class="buy">{% for l in links %}<a href="{{ l.url }}">{{ l.label }} on Amazon</a>{% endfor %}</p>
+{% endif %}
+{% endmacro %}
+
+{% macro bookCard(book) %}
+<li class="book">
+  {{ cover(book) }}
+  <h3 class="book__title">{{ book.title }}</h3>
+  {% if book.subtitle %}<p class="book__sub">{{ book.subtitle }}</p>{% endif %}
+  <p class="book__author">{{ book.author }}{% for c in book.contributors %}<span> · {{ c.role }}: {{ c.name }}</span>{% endfor %}</p>
+  {% if book.blurb %}<p class="book__blurb">{{ book.blurb }}</p>{% endif %}
+  {{ buyLinks(book.links) }}
+</li>
+{% endmacro %}

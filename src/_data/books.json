@@ -1,1 +1,73 @@
-[]
+[
+  {
+    "id": "tumor-next-door-1",
+    "title": "The Tumor Next Door",
+    "subtitle": "Volume I: Play to Win",
+    "series": "The Tumor Next Door",
+    "author": "Karen Park",
+    "contributors": [{ "name": "Bon K.", "role": "Illustrator" }],
+    "cover": "/assets/img/covers/tumor-next-door-1.jpg",
+    "blurb": "An illustrated story that treats assimilation as a biological process. A young Korean girl is caught between America’s promise of freedom and Korea’s pull of nostalgia, and her sense of self starts to change under the strain. All proceeds go to Stop AAPI Hate.",
+    "published": "2025-07-30",
+    "links": [{ "label": "Kindle", "url": "https://www.amazon.com/dp/B0FKN22QL1" }]
+  },
+  {
+    "id": "tumor-next-door-2",
+    "title": "The Tumor Next Door",
+    "subtitle": "Volume II: The Taste That Wears",
+    "series": "The Tumor Next Door",
+    "author": "Karen Park",
+    "contributors": [{ "name": "Bon K.", "role": "Illustrator" }],
+    "cover": "/assets/img/covers/tumor-next-door-2.jpg"
+  },
+  {
+    "id": "tumor-next-door-3",
+    "title": "The Tumor Next Door",
+    "subtitle": "Volume III: Beyond the Mold",
+    "series": "The Tumor Next Door",
+    "author": "Karen Park",
+    "contributors": [{ "name": "Bon K.", "role": "Illustrator" }],
+    "cover": "/assets/img/covers/tumor-next-door-3.jpg"
+  },
+  {
+    "id": "a-sweet-poison",
+    "title": "A Sweet Poison",
+    "subtitle": "A Memoir",
+    "author": "Karen Park",
+    "cover": "/assets/img/covers/a-sweet-poison.jpg"
+  },
+  {
+    "id": "civics-for-cynics",
+    "title": "Civics for Cynics",
+    "subtitle": "A Teen’s Guide to Modern Democracy",
+    "author": "Minwoo Jung",
+    "coverColor": "#1d2621"
+  },
+  {
+    "id": "through-the-canvas",
+    "title": "Through the Canvas",
+    "subtitle": "Korean Art, History, and Politics",
+    "author": "Minwoo Jung",
+    "cover": "/assets/img/covers/through-the-canvas.jpg"
+  },
+  {
+    "id": "lions-dont-roar",
+    "title": "Lions Don’t Roar in Parliament",
+    "subtitle": "And Other Tales from the Political Jungle: Modern Fables of Politics",
+    "author": "Minwoo Jung",
+    "cover": "/assets/img/covers/lions-dont-roar.jpg"
+  },
+  {
+    "id": "handshake-in-heaven",
+    "title": "A Handshake in Heaven",
+    "subtitle": "A Twin Brother’s Journey Through D-Day",
+    "author": "Seowoo Jang",
+    "coverColor": "#2f5d4c"
+  },
+  {
+    "id": "shape-allegory",
+    "title": "Shape Allegory",
+    "author": "Joshua Taeyoon Kim",
+    "coverColor": "#b8412c"
+  }
+]

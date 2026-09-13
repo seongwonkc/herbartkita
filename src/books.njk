@@ -1,0 +1,59 @@
+---
+layout: base.njk
+title: Books
+description: Books published by Herbart Kita, all by writers before college — illustrated fiction, memoir, civics, art history, and political fables.
+permalink: /books/
+---
+{% from "macros.njk" import cover, bookCard, buyLinks %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Our books</p>
+    <h1 class="display display--page">Books by writers before college.</h1>
+    <p class="lede">{{ books.length }} books by {{ authors.length }} young writers, from an illustrated trilogy about growing up between two countries to a guide to democracy for cynical teenagers.</p>
+  </div>
+</section>
+
+{% set tnd = books | where("series", "The Tumor Next Door") %}
+<section class="feature">
+  <div class="wrap feature__grid">
+    <div class="fan" aria-hidden="true">
+      {% for b in tnd %}{{ cover(b, "fan") }}{% endfor %}
+    </div>
+    <div>
+      <p class="kicker kicker--light">Series · {{ tnd.length }} volumes</p>
+      <h2 class="feature__title">The Tumor Next Door</h2>
+      <p class="feature__by">Karen Park · Art by Bon K.</p>
+      <p>{{ tnd[0].blurb }}</p>
+      <ol class="feature__vols">
+        {% for b in tnd %}<li>{{ b.subtitle }}</li>{% endfor %}
+      </ol>
+      {{ buyLinks(tnd[0].links) }}
+    </div>
+  </div>
+</section>
+
+{% for a in authors %}
+{% set theirs = books | where("author", a.name) %}
+<section class="band author" id="{{ a.name | slugify }}">
+  <div class="wrap">
+    <header class="author__head">
+      <h2 class="author__name">{{ a.name }}</h2>
+      <p class="author__count">{{ theirs.length }} {{ "book" if theirs.length == 1 else "books" }}</p>
+      {% if a.note %}<p class="author__note">{{ a.note | safe }}</p>{% endif %}
+    </header>
+    <ul class="catalog">
+      {% for b in theirs %}{{ bookCard(b) }}{% endfor %}
+    </ul>
+  </div>
+</section>
+{% endfor %}
+
+<section class="band band--tint">
+  <div class="wrap cta">
+    <div>
+      <h2 class="cta__title">Writing something?</h2>
+      <p>If you haven’t started college yet, your book could be next on this page.</p>
+    </div>
+    <a class="btn btn--solid" href="/publish/">How to publish with us</a>
+  </div>
+</section>

@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Jiwon Hur",
+    "nameKo": "허지원",
+    "role": "Co-founder · Representative",
+    "education": [
+      "Ewha Womans University"
+    ],
+    "summary": "A longtime reader and writer, now working on a young adult romance novel. She started Herbart Kita for writers like her high school self.",
+    "bio": [
+      "Jiwon is a longtime reader and a passionate writer. In high school, the work she cared about most kept getting dismissed as “by a kid.” Herbart Kita grew out of that: a publisher that reads young writers the way it would read anyone else.",
+      "She is writing a young adult romance novel."
+    ]
+  },
+  {
+    "name": "Seong Won Choi",
+    "role": "Co-founder",
+    "education": [
+      "Korea University, BA",
+      "Yonsei University, MA"
+    ],
+    "summary": "Author of two books in <em>An Irreverent Guide to the DSAT</em> series, now writing AP US History and AP World History in the same satirical style.",
+    "bio": [
+      "Under the name Kevin Choi, Seong Won is the author of two books in <em>An Irreverent Guide to the DSAT</em> series.",
+      "Now writing new books for AP US History and AP World History in the same satirical, irreverent style."
+    ],
+    "books": [
+      {
+        "title": "An Irreverent Guide to DSAT Vocabulary",
+        "subtitle": "750+ Pretentious Words You Need to Know",
+        "cover": "/assets/img/covers/dsat-vocabulary.jpg",
+        "links": [
+          {
+            "label": "Kindle",
+            "url": "https://www.amazon.com/dp/B0FL2KYHS4"
+          },
+          {
+            "label": "Print",
+            "url": "https://www.amazon.com/dp/B0FP1T9X15"
+          }
+        ]
+      },
+      {
+        "title": "An Irreverent Guide to the DSAT Reading and Writing",
+        "subtitle": "An Occasionally Humorous Guide to Achieving 700+",
+        "cover": "/assets/img/covers/dsat-reading-writing.jpg",
+        "links": [
+          {
+            "label": "Kindle",
+            "url": "https://www.amazon.com/dp/B0FL87DBZL"
+          }
+        ]
+      }
+    ]
+  }
+]

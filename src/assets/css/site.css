@@ -190,13 +190,100 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
 .track p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
 .track--argosy { background: var(--paper-2); }
 
-/* ---------- Catalog (renders only when books.json has entries) ---------- */
-.catalog { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 40px 32px; }
-.book__cover { aspect-ratio: 2 / 3; object-fit: cover; width: 100%; margin-bottom: 16px; box-shadow: 0 1px 0 var(--rule), 6px 8px 0 -2px var(--paper-2); }
-.book__title { font-size: 1.3rem; margin-bottom: 4px; }
-.book__author { margin: 0 0 10px; font-size: .95rem; }
-.book__author span, .book__blurb { color: var(--ink-soft); }
-.book__blurb { font-size: .95rem; margin: 0 0 14px; }
+/* ---------- Covers ---------- */
+.cover {
+  display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; background: var(--paper-2);
+  border-radius: 1px 3px 3px 1px;
+  box-shadow: inset 3px 0 0 rgba(0,0,0,.08), 0 1px 1px rgba(29,38,33,.12), 0 8px 18px -8px rgba(29,38,33,.35);
+}
+.cover--type {
+  position: relative; overflow: hidden; background: var(--board); color: var(--paper);
+  display: flex; flex-direction: column; padding: 12% 11% 10%; container-type: inline-size;
+}
+.cover--type::before { content: ""; position: absolute; inset: 6%; border: 1px solid rgba(245,239,227,.35); pointer-events: none; }
+.cover__title { font-family: var(--display); font-size: clamp(.9rem, 16cqi, 2.6rem); line-height: 1.02; text-wrap: balance; }
+.cover__sub { font-family: var(--serif); font-style: italic; font-size: clamp(.55rem, 7.2cqi, 1.05rem); line-height: 1.3; margin-top: 8%; opacity: .85; text-wrap: balance; }
+.cover__author { margin-top: auto; font-family: var(--mono); font-size: clamp(.45rem, 5.4cqi, .8rem); letter-spacing: .1em; text-transform: uppercase; opacity: .9; }
+
+/* ---------- Home: tally + cover wall ---------- */
+.tally { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: clamp(48px, 7vw, 80px) 0 0; border-top: 1px solid var(--rule); }
+.tally div { display: flex; flex-direction: column-reverse; justify-content: flex-end; padding: 20px 20px 0 0; }
+.tally div + div { padding-left: 24px; border-left: 1px solid var(--rule); }
+.tally dt { font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.tally dd { margin: 0 0 6px; font-family: var(--display); font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1; color: var(--green); }
+
+.band__head { display: flex; align-items: baseline; justify-content: space-between; gap: 0 16px; flex-wrap: wrap; }
+.wall { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 40px 28px; }
+.wall__item { display: block; text-decoration: none; color: var(--ink); }
+.wall__item .cover { transition: transform .2s ease, box-shadow .2s ease; }
+.wall__item:hover .cover { transform: translateY(-4px); box-shadow: inset 3px 0 0 rgba(0,0,0,.08), 0 14px 24px -10px rgba(29,38,33,.45); }
+.wall__item:hover { color: var(--ink); }
+.wall__title { display: block; margin-top: 14px; font-family: var(--display); font-size: 1.12rem; line-height: 1.2; }
+.wall__title span { font-family: var(--mono); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--red); white-space: nowrap; }
+.wall__author { display: block; margin-top: 4px; font-size: .88rem; color: var(--ink-soft); }
+
+/* ---------- Feature band (series) ---------- */
+.feature { background: var(--ink); color: var(--paper); padding: clamp(64px, 9vw, 112px) 0; overflow: hidden; }
+.feature__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(40px, 7vw, 96px); align-items: center; }
+.feature__title { font-family: var(--display); font-weight: 400; font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1.02; margin: 0 0 10px; }
+.feature__by { font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: #aab5ad; margin: 0 0 22px; }
+.feature p:not(.kicker):not(.feature__by):not(.buy) { color: #d6ddd7; max-width: 36em; margin: 0 0 28px; }
+.feature__vols { margin: 0 0 28px; padding: 0; list-style: none; display: grid; gap: 6px; }
+.feature__vols li { font-style: italic; color: var(--paper); padding-left: 18px; position: relative; }
+.feature__vols li::before { content: ""; position: absolute; left: 0; top: .8em; width: 8px; height: 1px; background: var(--red); }
+.feature .buy a { color: var(--paper); }
+.feature .buy a:hover { color: #e9b8a6; }
+.fan { position: relative; height: clamp(320px, 36vw, 440px); }
+.fan .cover { position: absolute; top: 50%; left: 50%; width: min(42%, 220px); box-shadow: 0 20px 40px -16px rgba(0,0,0,.7); }
+.fan .cover:nth-child(1) { transform: translate(-50%, -50%) translateX(-62%) rotate(-7deg); z-index: 3; }
+.fan .cover:nth-child(2) { transform: translate(-50%, -50%) translateY(-4%); z-index: 2; }
+.fan .cover:nth-child(3) { transform: translate(-50%, -50%) translateX(62%) rotate(7deg); z-index: 1; }
+
+/* ---------- Home: story ---------- */
+.story { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 16px 56px; }
+.story .section-label { grid-row: span 2; align-self: start; }
+.story__lead { font-family: var(--display); font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.12; margin: 0; max-width: 22ch; text-wrap: balance; }
+.story__body p { font-size: 1.15rem; color: var(--ink-soft); max-width: 36em; margin: 0 0 22px; }
+
+.founder-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 56px; margin-bottom: 32px; }
+.founder-card__name { font-size: clamp(1.8rem, 3vw, 2.3rem); margin-bottom: 4px; }
+.founder-card__edu { font-family: var(--mono); font-size: .78rem; letter-spacing: .04em; color: var(--red); margin: 0 0 14px; }
+.founder-card p:last-child { color: var(--ink-soft); margin: 0; }
+
+/* ---------- Books page ---------- */
+.author__head { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 4px 20px; margin-bottom: 36px; padding-top: 14px; border-top: 2px solid var(--ink); }
+.author__name { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 3.6vw, 2.8rem); margin: 0; line-height: 1.1; }
+.author__count { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--red); margin: 0; }
+.author__note { grid-column: 1 / -1; margin: 6px 0 0; color: var(--ink-soft); max-width: 40em; }
+.band.author + .band.author { border-top: 0; padding-top: 0; }
+.catalog { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 48px 36px; }
+.book .cover { margin-bottom: 18px; }
+.book__title { font-size: 1.35rem; margin: 0 0 2px; }
+.book__sub { font-style: italic; margin: 0 0 8px; color: var(--ink); font-size: .98rem; line-height: 1.4; }
+.book__author { margin: 0 0 10px; font-size: .9rem; color: var(--ink-soft); }
+.book__blurb { font-size: .95rem; color: var(--ink-soft); margin: 0 0 14px; }
+.buy { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; }
+.buy a { font-family: var(--mono); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+.buy a::after { content: " ↗"; }
+
+/* ---------- Publish: cover strip ---------- */
+.strip { list-style: none; margin: 0; padding: 4px 0 12px; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(104px, 1fr); gap: 16px; overflow-x: auto; }
+.strip a { display: block; }
+.strip .cover { transition: transform .2s ease; }
+.strip a:hover .cover { transform: translateY(-4px); }
+
+/* ---------- About: founders ---------- */
+.founder { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 24px 56px; padding: 40px 0; border-top: 1px solid var(--rule); }
+.founder:first-of-type { border-top: 0; padding-top: 0; }
+.founder__name { font-size: clamp(2rem, 3.4vw, 2.6rem); margin: 0 0 6px; }
+.founder__name span { display: block; font-size: 1.1rem; color: var(--ink-soft); margin-top: 6px; }
+.founder__role { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--red); margin: 0 0 12px; }
+.founder__edu { list-style: none; margin: 0; padding: 0; color: var(--ink-soft); font-size: .95rem; }
+.founder__books { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px 32px; }
+.mini-book { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 16px; align-items: start; }
+.prose .mini-book__title { font-family: var(--display); font-size: 1.1rem; line-height: 1.2; margin: 0 0 4px; }
+.prose .mini-book__sub { font-style: italic; font-size: .9rem; color: var(--ink-soft); margin: 0 0 10px; line-height: 1.35; }
+.mini-book .cover { object-fit: contain; background: transparent; box-shadow: none; }
 
 /* ---------- Prose ---------- */
 .prose { max-width: 40em; }
@@ -225,6 +312,10 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+  .wall { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .feature__grid, .story, .founder { grid-template-columns: 1fr; }
+  .story .section-label { grid-row: auto; }
+  .founder-cards { grid-template-columns: 1fr; }
   .hero__grid { grid-template-columns: 1fr; }
   .shelf__row { height: 220px; justify-content: flex-start; }
   .three, .tracks { grid-template-columns: 1fr 1fr; }
@@ -235,6 +326,12 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
   .split { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
+  .tally div + div { padding-left: 12px; }
+  .tally dt { font-size: .62rem; }
+  .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+  .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 16px; }
+  .book__title { font-size: 1.1rem; }
+  .fan { height: 300px; }
   body { font-size: 17px; }
   .three, .tracks, .steps, .colophon__grid { grid-template-columns: 1fr; }
   .step { border-right: 0; margin-right: 0; padding-right: 0; }

@@ -4,6 +4,7 @@ title: Publish with us
 description: Herbart Kita publishes books by writers before college, gap year included — edited, designed, and released on Amazon and in print.
 permalink: /publish/
 ---
+{% from "macros.njk" import cover %}
 <section class="page-head">
   <div class="wrap">
     <p class="kicker">Publish with us</p>
@@ -51,7 +52,19 @@ permalink: /publish/
   </div>
 </section>
 
-<section class="band" id="submit">
+<section class="band">
+  <div class="wrap">
+    <div class="band__head">
+      <h2 class="section-label">Books we’ve published</h2>
+      <a class="more" href="/books/">See them all</a>
+    </div>
+    <ul class="strip">
+      {% for b in books %}<li><a href="/books/#{{ b.author | slugify }}">{{ cover(b) }}</a></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="band band--tint" id="submit">
   <div class="wrap cta">
     <div>
       <h2 class="cta__title">Ready to send something?</h2>
