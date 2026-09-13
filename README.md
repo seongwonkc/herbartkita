@@ -10,7 +10,7 @@ bash scripts/deploy.sh   # build + push _site to gh-pages
 
 ## Filling in details
 
-Everything factual lives in two data files. Blank fields are hidden on the site, and the build prints which ones are still blank.
+Everything factual lives in the data files below. Blank fields are hidden on the site, and the build prints which ones are still blank.
 
 **`src/_data/site.json`**
 - `email`: turns on the submission and internship application buttons
