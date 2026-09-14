@@ -268,6 +268,15 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
 .buy a { font-family: var(--mono); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
 .buy a::after { content: " ↗"; }
 
+/* ---------- Publish: terms ---------- */
+.terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.term { padding: 28px 28px 32px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.term h3 { font-size: 1.35rem; }
+.term p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+.term--lead { background: var(--green); color: var(--paper); }
+.term--lead p { color: #dfe6df; }
+.term--lead .term__big { font-family: var(--display); font-size: clamp(2.6rem, 4.6vw, 3.6rem); line-height: 1; color: var(--paper); margin: 0 0 14px; }
+
 /* ---------- Publish: cover strip ---------- */
 .strip { list-style: none; margin: 0; padding: 4px 0 12px; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(104px, 1fr); gap: 16px; overflow-x: auto; }
 .strip a { display: block; }
@@ -316,6 +325,7 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
 @media (max-width: 900px) {
   .wall { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .feature__grid, .story, .founder { grid-template-columns: 1fr; }
+  .terms { grid-template-columns: 1fr 1fr; }
   .story .section-label { grid-row: auto; }
   .founder-cards { grid-template-columns: 1fr; }
   .hero__grid { grid-template-columns: 1fr; }
@@ -331,6 +341,7 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
   .tally div + div { padding-left: 12px; }
   .tally dt { font-size: .62rem; }
   .tally--text { grid-template-columns: 1fr; }
+  .terms { grid-template-columns: 1fr; }
   .tally--text div, .tally--text div + div { padding: 14px 0; border-left: 0; border-bottom: 1px solid var(--rule); }
   .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
   .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 16px; }
