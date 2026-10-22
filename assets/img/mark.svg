@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <symbol id="mark" viewBox="0 0 40 40">
+    <!-- An open book whose center fold grows a two-leaf sprout -->
+    <path d="M4 27.5c5-2.2 10.3-2 16 .8 5.7-2.8 11-3 16-.8V13c-5-2.2-10.3-2-16 .8C14.3 11 9 10.8 4 13z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M20 13.8v14.5" stroke="currentColor" stroke-width="2"/>
+    <path d="M20 13.8V8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M20 9.5c-.4-3.1-2.6-4.8-5.8-4.9.3 3.2 2.4 5 5.8 4.9z" fill="currentColor"/>
+    <path d="M20 8.6c.5-2.7 2.5-4.2 5.3-4.2-.3 2.8-2.2 4.4-5.3 4.2z" fill="currentColor"/>
+  </symbol>
+</svg>
