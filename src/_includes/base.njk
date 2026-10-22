@@ -39,7 +39,7 @@
         <span class="wordmark__name">Herbart Kita</span>
       </a>
       <nav class="nav" aria-label="Main">
-        {% set links = [["/books/", "Books"], ["/publish/", "Publish"], ["/internships/", "Internships"], ["/about/", "About"]] %}
+        {% set links = [["/books/", "Books"], ["/publish/", "Publish"], ["/prize/", "Prize"], ["/workshop/", "Workshop"], ["/mun/", "MUN"], ["/internships/", "Internships"], ["/about/", "About"]] %}
         {% for link in links %}
         <a href="{{ link[0] }}"{% if page.url == link[0] %} aria-current="page"{% endif %}>{{ link[1] }}</a>
         {% endfor %}
@@ -62,6 +62,9 @@
       <nav class="colophon__links" aria-label="Footer">
         <a href="/books/">Books</a>
         <a href="/publish/">Publish with us</a>
+        <a href="/prize/">Young Writers Prize</a>
+        <a href="/workshop/">Young Writer’s Workshop</a>
+        <a href="/mun/">Hybrid MUN</a>
         <a href="/internships/">Internships</a>
         <a href="/about/">About</a>
         <a href="{{ site.argosyUrl }}">The Argosy</a>

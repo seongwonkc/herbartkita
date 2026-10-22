@@ -1,0 +1,79 @@
+---
+layout: base.njk
+title: Young Writers Prize
+description: The Herbart Kita Young Writers Prize is open to boarding school students in grades 7–12. The Grand Prize is a novella mentorship that ends in publication.
+permalink: /prize/
+---
+{% from "macros.njk" import fill %}
+{% set prize = programs.prize %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Young Writers Prize</p>
+    <h1 class="display display--page">A writing prize for boarding school students.</h1>
+    <p class="lede">The Young Writers Prize is open to boarding school students in grades 7 through 12. The Grand Prize winner works on a novella with one of our editors, and we publish it.</p>
+    <dl class="tally tally--text">
+      <div><dt>Who</dt><dd>Boarding school students</dd></div>
+      <div><dt>Grades</dt><dd>7–12</dd></div>
+      <div><dt>Submissions</dt><dd>{{ fill(prize.submissionWindow, "DATES") }}</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <h2 class="section-label">Who can enter</h2>
+    <ul class="checks">
+      <li>Students enrolled at a boarding school</li>
+      <li>Grades 7 through 12</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band--tint" id="awards">
+  <div class="wrap">
+    <h2 class="section-label">Awards</h2>
+    <div class="terms">
+      {% for t in prize.tiers %}
+      <article class="term{% if loop.first %} term--lead{% endif %}">
+        <h3>{{ t.name }}</h3>
+        <p>{{ t.award }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="band" id="enter">
+  <div class="wrap split">
+    <h2 class="section-label">Submission window</h2>
+    <div class="prose">
+      <p>Entries are accepted {{ fill(prize.submissionWindow, "DATES") }}.</p>
+      <p>How to enter: {{ fill(prize.howToEnter, "ENTRY INSTRUCTIONS") }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="judging">
+  <div class="wrap split">
+    <h2 class="section-label">Judging</h2>
+    <div class="prose">
+      <p>Judges: {{ fill(prize.judges, "JUDGES") }}</p>
+      <p>What the judges look for: {{ fill(prize.criteria, "CRITERIA") }}</p>
+      <p>Results are announced {{ fill(prize.resultsDate, "DATE") }} on the <a href="/prize/winners/">Winners page</a>. The Grand Prize book is published under our <a href="/publish/#terms">standard publishing terms</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--tint" id="contact">
+  <div class="wrap cta">
+    <div>
+      <h2 class="cta__title">Questions about the prize?</h2>
+      {% if site.email %}
+      <p>Email <a href="mailto:{{ site.email }}?subject=Young%20Writers%20Prize">{{ site.email }}</a>.</p>
+      {% else %}
+      <p>Our contact address is on its way.</p>
+      {% endif %}
+    </div>
+    <a class="btn" href="/prize/winners/">See the winners</a>
+  </div>
+</section>

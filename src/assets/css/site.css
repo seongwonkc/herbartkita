@@ -296,6 +296,19 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
 .prose .mini-book__sub { font-style: italic; font-size: .9rem; color: var(--ink-soft); margin: 0 0 10px; line-height: 1.35; }
 .mini-book .cover { object-fit: contain; background: transparent; box-shadow: none; }
 
+/* ---------- Programs: TBD marks ---------- */
+.tbd {
+  font-family: var(--mono); font-size: .8em; letter-spacing: .04em; color: var(--red);
+  border: 1px dashed currentColor; border-radius: 2px; padding: 0 .35em; white-space: nowrap;
+}
+.tally dd .tbd { font-size: .55em; vertical-align: middle; }
+.term--lead .tbd { color: #e9b8a6; }
+.winner .biz { margin-top: 18px; }
+.winner .biz dt { min-width: 6.5em; }
+.term--lead .biz dt { color: #c9d4cc; }
+.prose .disclaimer { margin-top: 32px; font-size: .95rem; color: var(--ink-soft); border-left: 2px solid var(--rule); padding-left: 16px; }
+.cta p + p { margin-top: 10px; }
+
 /* ---------- Prose ---------- */
 .prose { max-width: 40em; }
 .prose p { margin: 0 0 1.1em; font-size: 1.15rem; }

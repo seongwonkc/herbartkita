@@ -1,0 +1,38 @@
+{
+  "prize": {
+    "submissionWindow": "",
+    "howToEnter": "",
+    "judges": "",
+    "criteria": "",
+    "resultsDate": "",
+    "tiers": [
+      {
+        "id": "grand",
+        "name": "Grand Prize",
+        "award": "A novella mentorship with a Herbart Kita editor, ending in publication through Herbart Kita."
+      },
+      {
+        "id": "argosy",
+        "name": "Guest essay in The Argosy",
+        "award": "A guest essay published in The Argosy, the student newspaper we sponsor."
+      },
+      {
+        "id": "workshop",
+        "name": "Workshop scholarship",
+        "award": "A scholarship to the Herbart Kita Young Writer’s Workshop."
+      }
+    ]
+  },
+  "workshop": {
+    "dates": "",
+    "format": "",
+    "tuition": "",
+    "howToApply": ""
+  },
+  "mun": {
+    "dates": "",
+    "venue": "",
+    "committees": [],
+    "howToRegister": ""
+  }
+}

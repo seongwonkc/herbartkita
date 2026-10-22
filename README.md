@@ -23,6 +23,23 @@ Everything factual lives in the data files below. Blank fields are hidden on the
 
 **`src/_data/founders.json`**: founder bios; `summary` is the short version on the home page.
 
+**`src/_data/programs.json`**: details for the Young Writers Prize (/prize/), Young Writer’s Workshop (/workshop/), and Hybrid MUN (/mun/). Unlike `site.json`, a blank field here shows on the page as a visible `[… TBD]` mark until it is filled in.
+
+**`src/_data/winners.json`**: Young Writers Prize results (/prize/winners/), newest cycle first. While it is `[]`, the page shows one blank cycle with a `[TBD]` slot per tier. Tier ids come from `programs.json`.
+
+```json
+[
+  {
+    "cycle": "2027",
+    "entries": {
+      "grand": { "name": "", "school": "", "grade": "", "title": "" },
+      "argosy": { "name": "", "school": "", "grade": "", "title": "" },
+      "workshop": { "name": "", "school": "", "grade": "", "title": "" }
+    }
+  }
+]
+```
+
 ```json
 [
   {

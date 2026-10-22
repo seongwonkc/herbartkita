@@ -11,19 +11,23 @@ module.exports = function (eleventyConfig) {
 
   // Blank fields in site.json are omitted from the page, never shown as placeholders.
   // List them at build time so nothing ships half-filled by accident.
+  // Program details (programs.json) are the opposite: blanks show as a visible [TBD] mark.
   eleventyConfig.on("eleventy.before", () => {
-    const site = require("./src/_data/site.json");
-    const missing = [];
-    const walk = (obj, path) => {
+    const blanks = (obj, path = "", out = []) => {
       for (const [k, v] of Object.entries(obj)) {
         const p = path ? `${path}.${k}` : k;
-        if (v && typeof v === "object" && !Array.isArray(v)) walk(v, p);
-        else if (v === "") missing.push(p);
+        if (v && typeof v === "object" && !Array.isArray(v)) blanks(v, p, out);
+        else if (v === "" || (Array.isArray(v) && v.length === 0)) out.push(p);
       }
+      return out;
     };
-    walk(site, "");
-    if (missing.length) {
-      console.warn(`[herbartkita] site.json fields still blank (hidden on the site): ${missing.join(", ")}`);
+    const site = blanks(require("./src/_data/site.json"));
+    if (site.length) {
+      console.warn(`[herbartkita] site.json fields still blank (hidden on the site): ${site.join(", ")}`);
+    }
+    const programs = blanks(require("./src/_data/programs.json"));
+    if (programs.length) {
+      console.warn(`[herbartkita] programs.json fields still TBD (shown as [TBD] on the site): ${programs.join(", ")}`);
     }
   });
 

@@ -1,0 +1,56 @@
+---
+layout: base.njk
+title: Young Writer’s Workshop
+description: The Herbart Kita Young Writer’s Workshop, including coaching for the Harvard International Review Academic Writing Contest, Fall/Winter cycle.
+permalink: /workshop/
+---
+{% from "macros.njk" import fill %}
+{% set ws = programs.workshop %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Young Writer’s Workshop</p>
+    <h1 class="display display--page">Coaching for young writers.</h1>
+    <p class="lede">The Young Writer’s Workshop is Herbart Kita’s writing program for students. It includes coaching for the Harvard International Review Academic Writing Contest.</p>
+    <dl class="tally tally--text">
+      <div><dt>Dates</dt><dd>{{ fill(ws.dates, "DATES") }}</dd></div>
+      <div><dt>Format</dt><dd>{{ fill(ws.format, "FORMAT") }}</dd></div>
+      <div><dt>Tuition</dt><dd>{{ fill(ws.tuition, "TUITION") }}</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band" id="hir">
+  <div class="wrap">
+    <h2 class="section-label">HIR Academic Writing Contest coaching</h2>
+    <div class="prose">
+      <p>We coach students through the Fall/Winter cycle of the Harvard International Review Academic Writing Contest, up to the submission deadline and Defense Day.</p>
+    </div>
+    <dl class="tally tally--text">
+      <div><dt>Submission deadline</dt><dd>Jan 2, 2027</dd></div>
+      <div><dt>Defense Day</dt><dd>Feb 5, 2027</dd></div>
+      <div><dt>Divisions</dt><dd>Junior: grades 7–8<br>Senior: grades 9–12</dd></div>
+    </dl>
+    <div class="prose">
+      <p class="disclaimer">The HIR Academic Writing Contest is an independent contest. Herbart Kita is not affiliated with the Harvard International Review (HIR).</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--tint">
+  <div class="wrap split">
+    <h2 class="section-label">Prize scholarship</h2>
+    <div class="prose">
+      <p>One of the <a href="/prize/#awards">Young Writers Prize</a> awards is a scholarship to the Workshop.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="apply">
+  <div class="wrap cta">
+    <div>
+      <h2 class="cta__title">How to apply</h2>
+      <p>{{ fill(ws.howToApply, "APPLICATION DETAILS") }}</p>
+      {% if site.email %}<p>Questions: <a href="mailto:{{ site.email }}?subject=Young%20Writer%E2%80%99s%20Workshop">{{ site.email }}</a></p>{% endif %}
+    </div>
+  </div>
+</section>

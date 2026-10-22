@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: Young Writers Prize winners
+description: Winners of the Herbart Kita Young Writers Prize.
+permalink: /prize/winners/
+---
+{% from "macros.njk" import fill %}
+{# winners.json is a list of prize cycles, newest first. Until one is added, show one blank cycle. #}
+{% set cycles = winners if winners.length else [{ "cycle": "", "entries": {} }] %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker"><a href="/prize/">Young Writers Prize</a></p>
+    <h1 class="display display--page">Winners</h1>
+    <p class="lede">Results are posted here after judging.</p>
+  </div>
+</section>
+
+{% for c in cycles %}
+<section class="band">
+  <div class="wrap">
+    <h2 class="section-label">{{ fill(c.cycle, "CYCLE") }}</h2>
+    <div class="terms">
+      {% for t in programs.prize.tiers %}
+      {% set w = c.entries[t.id] or {} %}
+      <article class="term winner{% if loop.first %} term--lead{% endif %}">
+        <h3>{{ t.name }}</h3>
+        <dl class="biz biz--page">
+          <div><dt>Name</dt><dd>{{ fill(w.name, "NAME") }}</dd></div>
+          <div><dt>School</dt><dd>{{ fill(w.school, "SCHOOL") }}</dd></div>
+          <div><dt>Grade</dt><dd>{{ fill(w.grade, "GRADE") }}</dd></div>
+          <div><dt>Title of work</dt><dd>{% if w.title %}<em>{{ w.title }}</em>{% else %}{{ fill("", "TITLE") }}{% endif %}</dd></div>
+        </dl>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
