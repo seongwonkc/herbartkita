@@ -154,6 +154,7 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
 /* ---------- Argosy band ---------- */
 .argosy { background: var(--green); color: var(--paper); padding: clamp(56px, 8vw, 96px) 0; }
 .argosy__grid { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.argosy p a { color: inherit; text-decoration-color: currentColor; }
 .argosy__seal { width: clamp(110px, 16vw, 170px); height: auto; border-radius: 50%; background: var(--paper); padding: 6px; }
 .argosy__title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: clamp(2.2rem, 4vw, 3.2rem); margin: 0 0 14px; line-height: 1; }
 .argosy p:not(.kicker) { max-width: 38em; margin: 0 0 28px; color: #dfe6df; }
