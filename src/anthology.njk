@@ -1,0 +1,72 @@
+---
+layout: base.njk
+title: Poetry anthology
+description: Herbart Kita publishes a poetry anthology twice a year, in spring and fall. Submissions are open.
+permalink: /anthology/
+---
+{% from "macros.njk" import fill %}
+{% set an = programs.anthology %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Poetry anthology</p>
+    <h1 class="display display--page">Send us your poems.</h1>
+    <p class="lede">Herbart Kita publishes a poetry anthology twice a year, in spring and fall. {% if an.submissionsOpen %}We’re accepting submissions now.{% else %}Submissions are closed for now.{% endif %}</p>
+    <dl class="tally tally--text">
+      <div><dt>Published</dt><dd>Spring and fall</dd></div>
+      <div><dt>Submissions</dt><dd>{% if an.submissionsOpen %}Open{% else %}Closed{% endif %}</dd></div>
+      <div><dt>Deadline</dt><dd>{{ fill(an.deadline, "DATE") }}</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <h2 class="section-label">Who can submit</h2>
+    <ul class="checks">
+      <li>Students in middle school or high school</li>
+      <li>Gap year students who haven’t enrolled in college yet</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band--tint" id="submit">
+  <div class="wrap split">
+    <h2 class="section-label">How to submit</h2>
+    <div class="prose">
+      <p>Now reading for: {{ fill(an.readingFor, "EDITION") }}</p>
+      <p>Guidelines: {{ fill(an.guidelines, "GUIDELINES") }}</p>
+      <p>Contributor terms: {{ fill(an.contributorTerms, "TERMS") }}</p>
+      {% if an.submissionsOpen and site.email %}
+      <p>Email your poems to <a href="mailto:{{ site.email }}?subject=Poetry%20anthology%20submission">{{ site.email }}</a> with your name and school year.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="band" id="editions">
+  <div class="wrap">
+    <h2 class="section-label">Anthologies</h2>
+    <div class="terms">
+      {% for e in an.editions %}
+      <article class="term{% if e.status == "Forthcoming" %} term--lead{% endif %}">
+        <p class="kicker{% if e.status == "Forthcoming" %} kicker--light{% endif %}">{{ e.status }}</p>
+        <h3>{{ e.name }}</h3>
+        <p>Edited by {{ e.editor }}</p>
+        <p>Release: {{ fill(e.release, "DATE") }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if an.submissionsOpen and site.email %}
+<section class="band band--tint">
+  <div class="wrap cta">
+    <div>
+      <h2 class="cta__title">Ready to send your poems?</h2>
+      <p>Submissions for the next anthology are open.</p>
+    </div>
+    <a class="btn btn--solid" href="mailto:{{ site.email }}?subject=Poetry%20anthology%20submission">Email your poems</a>
+  </div>
+</section>
+{% endif %}

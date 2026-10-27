@@ -309,6 +309,8 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
 .term--lead .biz dt { color: #c9d4cc; }
 .prose .disclaimer { margin-top: 32px; font-size: .95rem; color: var(--ink-soft); border-left: 2px solid var(--rule); padding-left: 16px; }
 .cta p + p { margin-top: 10px; }
+.term p + p { margin-top: 8px; }
+.term .kicker { margin-bottom: 12px; }
 
 /* ---------- Prose ---------- */
 .prose { max-width: 40em; }

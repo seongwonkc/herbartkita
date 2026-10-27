@@ -34,5 +34,20 @@
     "venue": "",
     "committees": [],
     "howToRegister": ""
+  },
+  "anthology": {
+    "submissionsOpen": true,
+    "readingFor": "",
+    "deadline": "",
+    "guidelines": "",
+    "contributorTerms": "",
+    "editions": [
+      {
+        "name": "Spring 2026",
+        "editor": "Chanseung Yang",
+        "status": "Forthcoming",
+        "release": ""
+      }
+    ]
   }
 }
