@@ -297,13 +297,16 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
 .prose .mini-book__sub { font-style: italic; font-size: .9rem; color: var(--ink-soft); margin: 0 0 10px; line-height: 1.35; }
 .mini-book .cover { object-fit: contain; background: transparent; box-shadow: none; }
 
-/* ---------- Programs: TBD marks ---------- */
-.tbd {
-  font-family: var(--mono); font-size: .8em; letter-spacing: .04em; color: var(--red);
-  border: 1px dashed currentColor; border-radius: 2px; padding: 0 .35em; white-space: nowrap;
-}
-.tally dd .tbd { font-size: .55em; vertical-align: middle; }
-.term--lead .tbd { color: #e9b8a6; }
+/* ---------- Programs ---------- */
+.tba { font-style: italic; color: var(--ink-soft); }
+.tally dd .tba { font-size: .75em; }
+.term--lead .tba { color: #c9d4cc; }
+.kicker a { color: inherit; }
+.tracks--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.track .kicker { margin-bottom: 12px; }
+.track .more { display: inline-block; margin-top: 18px; }
+.track h3 a { color: var(--ink); text-decoration: none; }
+.track h3 a:hover { color: var(--red); }
 .winner .biz { margin-top: 18px; }
 .winner .biz dt { min-width: 6.5em; }
 .term--lead .biz dt { color: #c9d4cc; }

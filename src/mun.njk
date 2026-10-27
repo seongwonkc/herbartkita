@@ -8,11 +8,11 @@ permalink: /mun/
 {% set mun = programs.mun %}
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker">Sponsored program</p>
+    <p class="kicker"><a href="/programs/">Programs</a> · Sponsored</p>
     <h1 class="display display--page">Hybrid MUN</h1>
     <p class="lede">A Model United Nations program sponsored by Herbart Kita. Delegates take part in person in Korea or remotely from the United States.</p>
     <dl class="tally tally--text">
-      <div><dt>Dates</dt><dd>{{ fill(mun.dates, "DATES") }}</dd></div>
+      <div><dt>Dates</dt><dd>{{ fill(mun.dates) }}</dd></div>
       <div><dt>In person</dt><dd>Korea</dd></div>
       <div><dt>Remote</dt><dd>From the U.S.</dd></div>
     </dl>
@@ -23,7 +23,7 @@ permalink: /mun/
   <div class="wrap split">
     <h2 class="section-label">Two ways to take part</h2>
     <ul class="checks">
-      <li>In person in Korea{% if mun.venue %}, at {{ mun.venue }}{% else %} · venue {{ fill("", "VENUE") }}{% endif %}</li>
+      <li>In person in Korea{% if mun.venue %}, at {{ mun.venue }}{% else %} (venue to be announced){% endif %}</li>
       <li>Remotely from the U.S.</li>
     </ul>
   </div>
@@ -35,7 +35,7 @@ permalink: /mun/
     {% if mun.committees.length %}
     <ul class="checks">{% for c in mun.committees %}<li>{{ c }}</li>{% endfor %}</ul>
     {% else %}
-    <div class="prose"><p>{{ fill("", "COMMITTEES") }}</p></div>
+    <div class="prose"><p>Committees will be announced here.</p></div>
     {% endif %}
   </div>
 </section>
@@ -44,7 +44,7 @@ permalink: /mun/
   <div class="wrap cta">
     <div>
       <h2 class="cta__title">How to register</h2>
-      <p>{{ fill(mun.howToRegister, "REGISTRATION DETAILS") }}</p>
+      <p>Registration: {{ fill(mun.howToRegister) }}</p>
       {% if site.email %}<p>Questions: <a href="mailto:{{ site.email }}?subject=Hybrid%20MUN">{{ site.email }}</a></p>{% endif %}
     </div>
   </div>

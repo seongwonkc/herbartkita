@@ -28,5 +28,5 @@
 </li>
 {% endmacro %}
 
-{# Program details still to be decided show as a visible [LABEL TBD] mark, unlike site.json blanks. #}
-{% macro fill(value, label) %}{% if value and value.length !== 0 %}{{ value }}{% else %}<span class="tbd">[{{ label }} TBD]</span>{% endif %}{% endmacro %}
+{# Program details still to be decided read "To be announced", unlike site.json blanks, which are hidden. #}
+{% macro fill(value) %}{% if value and value.length !== 0 %}{{ value }}{% else %}<span class="tba">To be announced</span>{% endif %}{% endmacro %}

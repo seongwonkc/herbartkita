@@ -11,7 +11,7 @@ module.exports = function (eleventyConfig) {
 
   // Blank fields in site.json are omitted from the page, never shown as placeholders.
   // List them at build time so nothing ships half-filled by accident.
-  // Program details (programs.json) are the opposite: blanks show as a visible [TBD] mark.
+  // Program details (programs.json) are the opposite: blanks read "To be announced".
   eleventyConfig.on("eleventy.before", () => {
     const blanks = (obj, path = "", out = []) => {
       for (const [k, v] of Object.entries(obj)) {
@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
     }
     const programs = blanks(require("./src/_data/programs.json"));
     if (programs.length) {
-      console.warn(`[herbartkita] programs.json fields still TBD (shown as [TBD] on the site): ${programs.join(", ")}`);
+      console.warn(`[herbartkita] programs.json fields still blank (shown as "To be announced"): ${programs.join(", ")}`);
     }
   });
 

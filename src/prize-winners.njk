@@ -5,8 +5,7 @@ description: Winners of the Herbart Kita Young Writers Prize.
 permalink: /prize/winners/
 ---
 {% from "macros.njk" import fill %}
-{# winners.json is a list of prize cycles, newest first. Until one is added, show one blank cycle. #}
-{% set cycles = winners if winners.length else [{ "cycle": "", "entries": {} }] %}
+{# winners.json is a list of prize cycles, newest first. Until one is added, each tier reads "to be announced". #}
 <section class="page-head">
   <div class="wrap">
     <p class="kicker"><a href="/prize/">Young Writers Prize</a></p>
@@ -15,20 +14,36 @@ permalink: /prize/winners/
   </div>
 </section>
 
-{% for c in cycles %}
+{% if not winners.length %}
 <section class="band">
   <div class="wrap">
-    <h2 class="section-label">{{ fill(c.cycle, "CYCLE") }}</h2>
+    <h2 class="section-label">Awards</h2>
+    <div class="terms">
+      {% for t in programs.prize.tiers %}
+      <article class="term{% if loop.first %} term--lead{% endif %}">
+        <h3>{{ t.name }}</h3>
+        <p><span class="tba">Winner to be announced</span></p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% for c in winners %}
+<section class="band">
+  <div class="wrap">
+    <h2 class="section-label">{{ c.cycle }}</h2>
     <div class="terms">
       {% for t in programs.prize.tiers %}
       {% set w = c.entries[t.id] or {} %}
       <article class="term winner{% if loop.first %} term--lead{% endif %}">
         <h3>{{ t.name }}</h3>
         <dl class="biz biz--page">
-          <div><dt>Name</dt><dd>{{ fill(w.name, "NAME") }}</dd></div>
-          <div><dt>School</dt><dd>{{ fill(w.school, "SCHOOL") }}</dd></div>
-          <div><dt>Grade</dt><dd>{{ fill(w.grade, "GRADE") }}</dd></div>
-          <div><dt>Title of work</dt><dd>{% if w.title %}<em>{{ w.title }}</em>{% else %}{{ fill("", "TITLE") }}{% endif %}</dd></div>
+          <div><dt>Name</dt><dd>{{ fill(w.name) }}</dd></div>
+          <div><dt>School</dt><dd>{{ fill(w.school) }}</dd></div>
+          <div><dt>Grade</dt><dd>{{ fill(w.grade) }}</dd></div>
+          <div><dt>Title of work</dt><dd>{% if w.title %}<em>{{ w.title }}</em>{% else %}{{ fill("") }}{% endif %}</dd></div>
         </dl>
       </article>
       {% endfor %}

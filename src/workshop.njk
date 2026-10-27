@@ -8,13 +8,13 @@ permalink: /workshop/
 {% set ws = programs.workshop %}
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker">Young Writer’s Workshop</p>
+    <p class="kicker"><a href="/programs/">Programs</a> · Young Writer’s Workshop</p>
     <h1 class="display display--page">Coaching for young writers.</h1>
     <p class="lede">The Young Writer’s Workshop is Herbart Kita’s writing program for students. It includes coaching for the Harvard International Review Academic Writing Contest.</p>
     <dl class="tally tally--text">
-      <div><dt>Dates</dt><dd>{{ fill(ws.dates, "DATES") }}</dd></div>
-      <div><dt>Format</dt><dd>{{ fill(ws.format, "FORMAT") }}</dd></div>
-      <div><dt>Tuition</dt><dd>{{ fill(ws.tuition, "TUITION") }}</dd></div>
+      <div><dt>Dates</dt><dd>{{ fill(ws.dates) }}</dd></div>
+      <div><dt>Format</dt><dd>{{ fill(ws.format) }}</dd></div>
+      <div><dt>Tuition</dt><dd>{{ fill(ws.tuition) }}</dd></div>
     </dl>
   </div>
 </section>
@@ -49,7 +49,7 @@ permalink: /workshop/
   <div class="wrap cta">
     <div>
       <h2 class="cta__title">How to apply</h2>
-      <p>{{ fill(ws.howToApply, "APPLICATION DETAILS") }}</p>
+      <p>Applications: {{ fill(ws.howToApply) }}</p>
       {% if site.email %}<p>Questions: <a href="mailto:{{ site.email }}?subject=Young%20Writer%E2%80%99s%20Workshop">{{ site.email }}</a></p>{% endif %}
     </div>
   </div>

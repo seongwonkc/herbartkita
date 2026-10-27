@@ -39,9 +39,10 @@
         <span class="wordmark__name">Herbart Kita</span>
       </a>
       <nav class="nav" aria-label="Main">
-        {% set links = [["/books/", "Books"], ["/publish/", "Publish"], ["/anthology/", "Anthology"], ["/prize/", "Prize"], ["/workshop/", "Workshop"], ["/mun/", "MUN"], ["/internships/", "Internships"], ["/about/", "About"]] %}
+        {% set links = [["/books/", "Books"], ["/publish/", "Publish"], ["/programs/", "Programs"], ["/internships/", "Internships"], ["/about/", "About"]] %}
+        {% set programPages = ["/programs/", "/anthology/", "/prize/", "/prize/winners/", "/workshop/", "/mun/"] %}
         {% for link in links %}
-        <a href="{{ link[0] }}"{% if page.url == link[0] %} aria-current="page"{% endif %}>{{ link[1] }}</a>
+        <a href="{{ link[0] }}"{% if page.url == link[0] or (link[0] == "/programs/" and page.url in programPages) %} aria-current="page"{% endif %}>{{ link[1] }}</a>
         {% endfor %}
         <a class="nav__ext" href="{{ site.argosyUrl }}">The Argosy <span aria-hidden="true">↗</span></a>
       </nav>
@@ -62,10 +63,7 @@
       <nav class="colophon__links" aria-label="Footer">
         <a href="/books/">Books</a>
         <a href="/publish/">Publish with us</a>
-        <a href="/anthology/">Poetry anthology</a>
-        <a href="/prize/">Young Writers Prize</a>
-        <a href="/workshop/">Young Writer’s Workshop</a>
-        <a href="/mun/">Hybrid MUN</a>
+        <a href="/programs/">Programs</a>
         <a href="/internships/">Internships</a>
         <a href="/about/">About</a>
         <a href="{{ site.argosyUrl }}">The Argosy</a>
