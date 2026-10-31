@@ -340,10 +340,22 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
 .biz dd { margin: 0; }
 .biz--page dt { color: var(--ink-soft); }
 
+/* ---------- Home: new release ---------- */
+.release__grid { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: clamp(32px, 6vw, 72px); align-items: center; }
+.release__cover { display: block; }
+.release__cover .cover { transform: rotate(-2deg); box-shadow: 0 18px 32px -16px rgba(29,38,33,.5); transition: transform .2s ease; }
+.release__cover:hover .cover { transform: rotate(0deg) translateY(-4px); }
+.release__title { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.04; margin: 0 0 10px; }
+.release__by { font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 22px; }
+.release__lead { font-size: 1.12rem; margin: 0 0 14px; }
+.release p:not(.kicker):not(.release__by) { max-width: 36em; }
+.release__soon { font-family: var(--mono); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--red); margin: 18px 0 0; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .wall { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .feature__grid, .story, .founder { grid-template-columns: 1fr; }
+  .release__grid { grid-template-columns: minmax(0, 200px) minmax(0, 1fr); }
   .terms { grid-template-columns: 1fr 1fr; }
   .story .section-label { grid-row: auto; }
   .founder-cards { grid-template-columns: 1fr; }
@@ -370,6 +382,8 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-heig
   .three, .tracks, .steps, .colophon__grid { grid-template-columns: 1fr; }
   .step { border-right: 0; margin-right: 0; padding-right: 0; }
   .argosy__grid { grid-template-columns: 1fr; }
+  .release__grid { grid-template-columns: 1fr; }
+  .release__cover { max-width: 200px; }
   .shelf__row { height: 170px; gap: 4px; }
   .s1, .s2, .s3, .s4, .s5, .s6, .s7 { width: auto; flex: 1 1 0; max-width: 44px; }
   .nav { gap: 4px 18px; }

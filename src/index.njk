@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /
 ---
-{% from "macros.njk" import cover %}
+{% from "macros.njk" import cover, buyLinks %}
 <section class="hero">
   <div class="wrap hero__grid">
     <div class="hero__copy">
@@ -36,6 +36,23 @@ permalink: /
     </dl>
   </div>
 </section>
+
+{% set newest = books | where("id", "steamed-separately") %}
+{% if newest.length %}{% set nb = newest[0] %}
+<section class="band band--tint release">
+  <div class="wrap release__grid">
+    <a class="release__cover" href="/books/#{{ nb.author | slugify }}">{{ cover(nb) }}</a>
+    <div>
+      <p class="kicker">New release</p>
+      <h2 class="release__title">{{ nb.title }}</h2>
+      <p class="release__by">{{ nb.author }} · Recipes by Sanglee Cho</p>
+      <p class="release__lead">The latest from our own Ethan Yang, editor-in-chief of <a href="{{ site.argosyUrl }}"><em>The Argosy</em></a>.</p>
+      <p>{{ nb.blurb }}</p>
+      {% if nb.links and nb.links.length %}{{ buyLinks(nb.links) }}{% else %}<p class="release__soon">Coming soon to Amazon in paperback and Kindle.</p>{% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <section class="band band--list">
   <div class="wrap">

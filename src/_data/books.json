@@ -1,5 +1,15 @@
 [
   {
+    "id": "steamed-separately",
+    "title": "Steamed Separately",
+    "subtitle": "Recipes from Our Family’s Kitchen",
+    "author": "Chanseung (Ethan) Yang",
+    "contributors": [{ "name": "Sanglee Cho", "role": "Recipes" }],
+    "cover": "/assets/img/covers/steamed-separately.jpg",
+    "blurb": "When his father was diagnosed with cancer, Ethan’s mother rebuilt the family kitchen around a strict set of rules: nothing fried, nothing processed, no sugar, every vegetable steamed on its own. Ethan took the sink. The book collects her eighteen recipes alongside his stories from three and a half years at the table.",
+    "published": "2026-10-31"
+  },
+  {
     "id": "tumor-next-door-1",
     "title": "The Tumor Next Door",
     "subtitle": "Volume I: Play to Win",
